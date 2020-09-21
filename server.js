@@ -3,6 +3,34 @@ const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
+const connectionString = "mongodb+srv://I_Con:FB8S36ccfS7xYA2@cluster0.lfwrb.mongodb.net/crud_app?retryWrites=true&w=majority";
+
+// Callback version
+// MongoClient.connect(connectionString, {
+//     useUnifiedTopology: true
+// },(err, client) => {
+//     if (err) return console.error(err);
+//     console.log('Connected to Database');
+// });
+
+// Promise Version
+MongoClient.connect(connectionString, {
+    useUnifiedTopology: true})
+    .then(client => {
+        console.log('Connected to Database');
+        const db = client.db('crud_app');
+        const quotesCollection = db.collection('quotes');
+
+        app.post('/quotes', (req, res) => {
+            quotesCollection.insertOne(req.body)
+                .then(result => {
+                    res.redirect('/');
+                })
+                .catch(error => console.error(error));
+        });
+    })
+    .catch(error => console.error(error));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(3000, function(){
@@ -17,8 +45,4 @@ app.listen(3000, function(){
 // ES6 arrow function version
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
-});
-
-app.post('/quotes', (req, res) => {
-    console.log(req.body);
 });
