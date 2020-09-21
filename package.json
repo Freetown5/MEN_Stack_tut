@@ -1,0 +1,19 @@
+{
+  "name": "men_stack_tut",
+  "version": "1.0.0",
+  "description": "another node tutorial, this time with mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/nodemon server.js"
+  },
+  "author": "I.Con",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
