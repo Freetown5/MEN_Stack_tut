@@ -19,6 +19,18 @@ MongoClient.connect(connectionString, {
         const db = client.db('crud_app');
         const quotesCollection = db.collection('quotes');
 
+        app.set('view engine', 'ejs');
+        app.use(express.static('public'));
+        app.use(bodyParser.json());
+
+        app.get('/', (req, res) => {
+            db.collection('quotes').find().toArray()
+                .then(results => {
+                    res.render('index.ejs', { quotes: results })
+                })
+                .catch(error => console.error(error));
+        });
+            
         app.post('/quotes', (req, res) => {
             quotesCollection.insertOne(req.body)
                 .then(result => {
@@ -26,6 +38,10 @@ MongoClient.connect(connectionString, {
                 })
                 .catch(error => console.error(error));
         });
+
+        app.put('/quotes', (req, res) => {
+            console.log(req.body);
+        })
     })
     .catch(error => console.error(error));
 
@@ -41,6 +57,6 @@ app.listen(3000, function(){
 // });
 
 // ES6 arrow function version
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/index.html');
+// });
