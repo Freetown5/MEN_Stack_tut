@@ -1,7 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
+
+const connectionString = `mongodb+srv://${process.env.API_USERNAME}:${process.env.API_KEY}@cluster0.lfwrb.mongodb.net/crud_app?retryWrites=true&w=majority`;
 
 // Callback version
 // MongoClient.connect(connectionString, {
