@@ -9,7 +9,13 @@ update.addEventListener('click', _=> {
             name: 'Darth Vadar',
             quote: 'I find your lack of faith disturbing.'
         })
-    });
+    })
+    .then(res => {
+        if(res.ok) return res.json();
+    })
+    .then(response => {
+        window.location.reload(true);
+    })
 });
 
 deleteButton.addEventListener('click', _=> {
