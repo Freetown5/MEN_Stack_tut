@@ -39,12 +39,27 @@ body{
 
 /* Elements  */
 button{
+    background-color: #9170A3;
+    color: white;
     font-size: 1.25em;
     font-family: inherit;
+    font-weight: bold;
     border: 0;
+    border-radius: 10px;
     padding: 10px;
 }
 
 .form-option{
     margin-bottom: 20px;
+}
+
+li{
+    list-style-type: square;
+}
+
+input{
+    font-size: 1em;
+    width: 80%;
+    margin-left: 10px;
+    padding: 5px;
 }
