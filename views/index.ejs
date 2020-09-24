@@ -6,38 +6,49 @@
         <link href="/styles.css" rel="stylesheet">
     </head>
     <body>
-        <h1>May Node and Express be with you</h1>
+        <h1 class="title">May Node and Express be with you</h1>
 
-        <form action="/quotes" method="POST">
-            <input type="text" placeholder="name" name="name"/>
-            <input type="text" placeholder="quote" name="quote"/>
-            <button type="submit">Submit</button>
-        </form>
-        
-        <h2>Quotes</h2>
-        <ul class="quotes">
-            <% for(var i = 0; i < quotes.length; i++) {%>
-                <li class="quotes">
-                    <span><%= quotes[i].name %></span>:
-                    <span><%= quotes[i].quote %></span>
-                </li>
-            <% } %>
-        </ul>
+        <section class="center-boxes">
+            <h2>Add a quote here:</h2>
+            <form action="/quotes" method="POST">
+                <div class="form-option">
+                    <label for="name">Name:</label>
+                    <input type="text" placeholder="name" name="name"/>
+                </div>
+                <div class="form-option">
+                    <label for="quote">Quote:</label>
+                    <input type="text" placeholder="quote" name="quote"/>
+                </div>
+                <button type="submit" alt="submit">Submit</button>
+            </form>
+        </section>
 
-        <div>
+        <section class="center-boxes">
             <h2>Darth Vadar invades!</h2>
             <p>Replace first Yoda's quote with a quote written by Darth Vadar</p>
-            <button id="update-button">Replace Yoda's quote</button>
-        </div>
+            <button id="update-button" alt="update">Replace Yoda's quote</button>
+        </section>
 
-        <div>
+        <section class="center-boxes">
             <h2>Remove Darth Vadar!</h2>
             <p>
                 Delete one Darth Vadar quote. "Does nothing if there are no more Darth" - Vadar's quote
             </p>
-            <button id="delete-button">Delete Darth Vadar's quote</button>
-        </div>
-        <div id="message"></div>
+            <button id="delete-button" alt="delete">Delete Darth Vadar's quote</button>
+            <div id="message"></div>
+        </section>
+
+        <section class="quote-container">
+            <h2>Quotes</h2>
+            <ul class="quotes">
+                <% for(var i = 0; i < quotes.length; i++) {%>
+                    <li class="quotes">
+                        <span><%= quotes[i].name %></span>:
+                        <span><%= quotes[i].quote %></span>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
         <script src="/main.js"></script>
     </body>
 </html>

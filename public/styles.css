@@ -1,3 +1,50 @@
 body{
-    background-color: purple;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+    padding: 30px;
+    background: rgb(228,227,236);
+    background: linear-gradient(90deg, rgba(228,227,236,1) 0%, rgba(121,9,84,0.5900735294117647) 35%, rgba(0,212,255,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.2em;
+}
+
+/* Containers  */
+.title{
+    background-color: aliceblue;
+    text-align: center;
+    grid-column: span 3;
+    align-self: start;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.center-boxes{
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.quote-container{
+    background-color: aliceblue;
+    grid-column: span 3;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Elements  */
+button{
+    font-size: 1.25em;
+    font-family: inherit;
+    border: 0;
+    padding: 10px;
+}
+
+.form-option{
+    margin-bottom: 20px;
 }
