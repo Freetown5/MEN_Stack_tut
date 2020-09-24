@@ -57,7 +57,7 @@ MongoClient.connect(connectionString, {
                 }
             )
             .then(result => {
-                console.log(result);
+                res.json('Success');
             })
             .catch(error => console.error(error));
         });
